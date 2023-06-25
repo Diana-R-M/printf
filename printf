@@ -4,23 +4,22 @@
 #include <stdio.h>
 
 /**
- * _printf - produces output according to a format.            
+ * _printf - produces output according to a format
  * @format: format.
  * Return: Printed chars.
  */
- 
+
 int _printf(const char *format, ...)
 {
     va_list aaa;
     va_start(aaa, format);
-	
 	int b;
     int print_value = 0;
 	int showDigits = 0;
 
-    while (*format != '\0') 
+    while (*format != '\0')
 	{
-        if (*format == '%') 
+        if (*format == '%')
 		{
             format++;
             if (*format == 'c')
@@ -42,18 +41,17 @@ int _printf(const char *format, ...)
 			{
                 putchar('%');
                 print_value++;
-            } 
+            }
 			else if (*format == 'd' || *format == 'i')
 			{
                 int num = va_arg(aaa, int);
                 printf("%d", num);
-            
+
                 int temp = num;
-				
                 if (temp == 0)
 				{
                     showDigits = 1;
-                } 
+                }
 				else
 				{
                     while (temp != 0)
@@ -64,7 +62,7 @@ int _printf(const char *format, ...)
                 }
                 print_value += showDigits;
             }
-        } 
+        }
 		else
 		{
             putchar(*format);
