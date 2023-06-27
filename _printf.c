@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 
-	va_lsit args;
+	va_list args;
 
 	va_start(args, format);
 
@@ -32,11 +32,11 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				count += print_char(args);
+				count += char_printf(args);
 			}
 			else if (*format == 's')
 			{
-				count += print_string(args);
+				count += string_printf(args);
 			}
 			else
 			{
