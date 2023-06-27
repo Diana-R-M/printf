@@ -5,18 +5,14 @@
 
 /**
  * char_printf - prints characters
- * @args: arguments
- * @buffer_array: array that handles print
- * @s: Size specifier
- * @p: Precision specifier
- * @f: flag calculator
- * @w: Width
- * Return: Characters printed
+ * @args: list of arguments
+ * Return: 1
  */
 
-int char_printf(va_list args, char buffer_array[], int s,  int p, int f, int w)
+int char_printf(va_list args)
 {
 	char a = va_arg(args, int);
 
-	return (write_char(a, buffer_array, f, w, p, s));
+	_putchar(a);
+	return (1);
 }
