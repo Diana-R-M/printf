@@ -13,9 +13,9 @@
 int string_printf(va_list args)
 {
 	char *str;
+	int a, l;
 
 	str = va_arg(args, char *);
-	int a, l;
 
 	if (str == NULL)
 	{
