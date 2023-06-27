@@ -3,55 +3,63 @@
 #include <stdio.h>
 #include <string.h>
 /**
- * _printf - produce output as per the format
+ * _printf - print output
  * @format: character string
- * description - produce output by format
+ * description - print output
  * Return: 0
  */
 int _printf(const char *format, ...)
 {
 	int count = 0;
+	int i = 0;
 
 	va_list args;
 
 	va_start(args, format);
 
-	while (*format != '\0')
+	while (format[i] != '\0')
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
+			i++;
 
-			if (*format == 'd' || *format == 'i')
+			if (format[i] == '\0')
 			{
-				count += print_int(args);
+				break;
 			}
-			else  if (*format == '%')
-			{
-				count += print_percent(args);
-			}
-			else if (*format == 'c')
+			else if (format[i] == 'c')
 			{
 				count += char_printf(args);
+				_putchar(count);
 			}
-			else if (*format == 's')
+			else if (format[i] == 's')
 			{
 				count += string_printf(args);
+				_putchar(count);
+			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				count += print_int(args);
+				_putchar(count);
+			}
+			else if (format[i] == '%')
+			{
+				count += print_percent(args);
+				_putchar(count);
 			}
 			else
 			{
-				_putchar('%');
-				_putchar (*format);
-				count += 2;
+				_putchar(format[i]);
+				count++;
 			}
 		}
 		else
 		{
-			putchar(*format);
-			format++;
+			_putchar(format[i]);
+			count++;
 		}
 
-		format++;
+		i++;
 	}
 
 	va_end(args);

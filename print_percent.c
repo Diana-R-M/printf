@@ -3,7 +3,7 @@
 #include <stdarg.h>
 /**
  * print_percent - handle % conversion specifiers
- * @args - arguments
+ * @args: arguments
  * description - handle %
  * Return: 1
  */
