@@ -11,50 +11,47 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;
-	int i = 0;
 
-	va_list args;
+	va_lsit args;
 
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	while (*format != '\0')
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			i++;
+			format++;
 
-			if (format[i] == '\0')
+			if (*format == 'd' || *format == 'i')
 			{
-				break;
+				count += print_int(args);
 			}
-			else if (format[i] == 'c')
+			else  if (*format == '%')
 			{
-				char c = (char)va_arg(args, int);
-
-				putchar(c);
-				count++;
+				count += print_percent(args);
 			}
-			else if (format[i] == 's')
+			else if (*format == 'c')
 			{
-				char *str = va_arg(args, char*);
-
-				fputs(str, stdout);
-				count += strlen(str);
+				count += print_char(args);
 			}
-			else if (format[i] == '%')
+			else if (*format == 's')
 			{
-				putchar('%');
-				putchar(format[i]);
+				count += print_string(args);
+			}
+			else
+			{
+				_putchar('%');
+				_putchar (*format);
 				count += 2;
 			}
 		}
 		else
 		{
-			putchar(format[i]);
-			count++;
+			putchar(*format);
+			format++;
 		}
 
-		i++;
+		format++;
 	}
 
 	va_end(args);
