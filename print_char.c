@@ -11,7 +11,7 @@
 
 int char_printf(va_list args)
 {
-	char a = va_arg(args, int);
+	char a = va_arg(args, char);
 
 	_putchar(a);
 	return (1);
