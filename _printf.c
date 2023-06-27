@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 
-	va_lsit args;
+	va_list args;
 
 	va_start(args, format);
 

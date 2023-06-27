@@ -11,9 +11,9 @@ int print_int(va_list args)
 
 	if (num < 0)
 	{
-		_putchar('_');
+		putchar('_');
 		num = - num;
-		count++
+		count++;
 	}
 
 	do
@@ -23,7 +23,7 @@ int print_int(va_list args)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		_putchar(buffer[i]);
+		putchar(buffer[i]);
 		count++;
 	}
 
