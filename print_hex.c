@@ -19,7 +19,7 @@ int print_hex(va_list args)
 	number = 0;
 	while (number > 0)
 	{
-		buffer_array[i++] = hexadecimal[number % 16];
+		buffer_array[b++] = hexadecimal[number % 16];
 		number /= 16;
 	}
 	for (b = a - 1; b >= 0; b--)

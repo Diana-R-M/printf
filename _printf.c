@@ -47,6 +47,11 @@ int _printf(const char *format, ...)
 				count += print_percent(args);
 				_putchar(count);
 			}
+			else if (format[i] == 'x')
+			{
+				count += print_hex(args);
+				_putchar(count);
+			}
 			else
 			{
 				_putchar(format[i]);

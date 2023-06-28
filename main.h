@@ -10,6 +10,6 @@ int print_percent(va_list args);
 int char_printf(va_list args);
 int print_int(va_list args);
 int string_printf(va_list args);
-int print_hex(va_list args)
+int print_hex(va_list args);
 
 #endif
