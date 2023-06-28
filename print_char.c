@@ -9,10 +9,10 @@
  * Return: 1
  */
 
-int char_printf(va_list args)
+int char_printf(va_list args, int *count)
 {
-	int a = va_arg(args, int);
-
+	char a =(char)va_arg(args, int);
 	_putchar(a);
-	return (1);
+	(*count)++;
+	return(0);
 }

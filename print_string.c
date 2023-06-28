@@ -10,35 +10,10 @@
  * Return: Strings printed
  */
 
-int string_printf(va_list args)
+int string_printf(va_list args, int *count)
 {
-	char *str;
-	int a, l;
-
-	str = va_arg(args, char *);
-
-	if (str == NULL)
-	{
-		str = "(null)";
-		l = strlen(str);
-		a = 0;
-		while (a < l)
-		{
-			_putchar(str[a]);
-			a++;
-		}
-		return (l);
-	}
-	else
-	{
-		l = strlen(str);
-		a = 0;
-		while (a < l)
-		{
-			_putchar(str[a]);
-			a++;
-		}
-		return (l);
-	}
+	char *str = va_arg(args, char *);
+	fputs(str, stdout);
+	(*count) += strlen(str);
+	return(0);
 }
-

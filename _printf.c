@@ -29,32 +29,23 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'c')
 			{
-				count += char_printf(args);
-				_putchar(count);
+				char_printf(args, &count);
 			}
 			else if (format[i] == 's')
 			{
-				count += string_printf(args);
-				_putchar(count);
+				string_printf(args, &count);
 			}
 			else if (format[i] == 'd' || format[i] == 'i')
 			{
-				count += print_int(args);
-				_putchar(count);
-			}
-			else if (format[i] == '%')
-			{
-				count += print_percent(args);
-				_putchar(count);
+				print_int(args, &count);
 			}
 			else if (format[i] == 'x')
 			{
-				count += print_hex(args);
-				_putchar(count);
+				print_hex(args, &count);
 			}
-			else
+			else if (format[i] == '%')
 			{
-				_putchar(format[i]);
+				_putchar('%');
 				count++;
 			}
 		}
@@ -66,7 +57,6 @@ int _printf(const char *format, ...)
 
 		i++;
 	}
-
 	va_end(args);
 	return (count);
 }
