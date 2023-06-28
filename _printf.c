@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'd' || format[i] == 'i')
 			{
-				print_int(args, &count);
+				print_decimal(args, &count);
 			}
 			else if (format[i] == 'x')
 			{
