@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdarg.h>
-
+/**
+ * print_int - print int
+ * @args: arguments
+ * description - handle %d and %i
+ * Return: 0
+ */
 int print_int(va_list args)
 {
 	int num = va_arg(args, int);
@@ -12,12 +17,12 @@ int print_int(va_list args)
 	if (num < 0)
 	{
 		putchar('_');
-		num = - num;
+		num = -num;
 		count++;
 	}
 
-	do
-	{ buffer[i++] = num % 10 + '0';
+	do {
+		buffer[i++] = num % 10 + '0';
 		num /= 10;
 	} while (num > 0);
 
